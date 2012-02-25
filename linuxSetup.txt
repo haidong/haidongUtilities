@@ -1,0 +1,32 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install gvim-gnome
+sudo apt-get install terminator
+sudo apt-get install ruby
+sudo apt-get install rubygems
+sudo apt-get install git
+sudo apt-get install quicksynergy
+sudo apt-get install ack-grep
+sudo apt-get install python-pip
+sudo pip install virtualenv
+
+sudo gem install vagrant
+sudo gem install veewee
+
+Got errors during veewee install:
+Invalid gemspec in [/var/lib/gems/1.8/specifications/json-1.5.4.gemspec]: invalid date format in specification: "2011-08-31 00:00:00.000000000Z"
+Modify /var/lib/gems/1.8/specifications/json-1.5.4.gemspec, change the date format to 2011-08-31
+
+Similar error happened while running vagrant, fix the file mentioned and all is well.
+
+Firefox extensions:
+Pentadactyl, makes my Firefox accepts Vim like commands, a fork of Vimperator
+https everywhere
+Adblock Plus
+Downthemall
+
+Download and install VirtualBox
+sudo dpkg -i virtualbox-4.1_4.1.8-75467~Ubuntu~oneiric_amd64.deb
+
+The step above has dependency issues, ran command below to resolve:
+sudo apt-get -f install
