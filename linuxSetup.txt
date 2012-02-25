@@ -9,6 +9,7 @@ sudo apt-get install quicksynergy
 sudo apt-get install ack-grep
 sudo apt-get install python-pip
 sudo pip install virtualenv
+sudo apt-get install ipython
 
 sudo gem install vagrant
 sudo gem install veewee
