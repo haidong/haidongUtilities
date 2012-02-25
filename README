@@ -11,3 +11,7 @@ c. Menu bar and icons are hidden by default. If you need them, press Ctrl-F2. Th
 
 3. linuxSetup.txt
 Steps I took to get my Linux Mint 64-bit going on my Lenovo ThinkPad W520
+
+4. overview.htm, overview.xml, sqlserver.htm, and sqlserver.xml
+These 4 files are Windows Perfmon data collection template files. They contain useful counters whose data we collect for Windows system overview and performance analysis. The collected data can be fed to PAL that generates nice reports (with graphics and charts) of Windows system overview and bottleneck analysis.
+The .htm files are Windows 2003 and earlier, and the .xml are for Windows 2008 and later.
