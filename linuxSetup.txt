@@ -10,6 +10,7 @@ sudo apt-get install ack-grep
 sudo apt-get install python-pip
 sudo pip install virtualenv
 sudo apt-get install ipython
+sudo pip install nose
 
 sudo gem install vagrant
 sudo gem install veewee
