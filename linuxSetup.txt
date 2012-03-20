@@ -14,6 +14,7 @@ sudo pip install nose
 sudo apt-get install mercurial
 sudo apt-get install python-dev
 sudo apt-get install libxslt-dev
+sudo apt-get install pdftk
 
 sudo gem install vagrant
 sudo gem install veewee
