@@ -15,6 +15,7 @@ sudo apt-get install mercurial
 sudo apt-get install python-dev
 sudo apt-get install libxslt-dev
 sudo apt-get install pdftk
+sudo cpan Test::Simple
 
 sudo gem install vagrant
 sudo gem install veewee
