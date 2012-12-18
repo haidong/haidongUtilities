@@ -11,6 +11,8 @@ sudo apt-get install python-pip
 sudo pip install virtualenv
 sudo apt-get install ipython
 sudo pip install nose
+sudo pip install pep8
+sudo pip install flake8
 sudo apt-get install mercurial
 sudo apt-get install python-dev
 sudo apt-get install libxslt-dev
