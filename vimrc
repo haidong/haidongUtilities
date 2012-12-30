@@ -2,7 +2,6 @@ set nocompatible
 set ignorecase smartcase
 set linebreak
 set autoindent
-set smartindent
 set showmatch
 set cursorline
 set cursorcolumn
