@@ -8,6 +8,8 @@ set cursorline
 set cursorcolumn
 set backupdir=$HOME/Documents/vimBackup
 
+colorscheme morning
+
 call pathogen#infect()
 syntax on
 filetype plugin indent on
