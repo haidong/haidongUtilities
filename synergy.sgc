@@ -1,0 +1,37 @@
+section: screens
+  haidong-ThinkPad-W520:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+	asus-PC:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+	haidong-ThinkPad-W520:
+		lenovo
+end
+
+section: links
+	haidong-ThinkPad-W520:
+		right = asus-PC
+	asus-PC:
+		left = haidong-ThinkPad-W520
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = true
+	win32KeepForeground = false
+	switchCorners = none 
+	switchCornerSize = 0
+end
+
