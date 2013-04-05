@@ -3,11 +3,10 @@ Place where Haidong stores his utility scripts:
 1. backupBlog.sh
 This script does two things: a. it rsyncs the public_html folder on the remote host so you have a local copy; b. it makes a MySQL db backup on the remote host, zip it, and then copy it to the local machine. It makes sure that the database backup is removed after all is done so the backup files do not pile up. It also removes db backup files that are older than 5 days. Make sure id_rsa.pub is copied to the remote host
 
-2. gvimrc
-This is my Gvim configuration file. It works on both Windows and Linux. Highlights are:
+2. gvimrc and vimrc files
+They work on both Windows and Linux. Highlights are:
 a. It needs a backup folder so all the ~ files will be saved there;
-b. On Linux, it uses the Deja Vu Sans font. On Windows, it uses Consolas font. The configuration file checks what the operating system and intelligently detectcs which one to pick;
-c. Menu bar and icons are hidden by default. If you need them, press Ctrl-F2. This seems to be broken on Linux Mint KDE 64-bit edition, but works on Windows. At any rate, I don't think I will use the menu bars.
+b. On Linux, GVIM it uses the Deja Vu Sans font. On Windows, it uses Consolas font. The configuration file checks what the operating system and intelligently detectcs which one to pick;
 
 3. linuxSetup.txt
 Steps I took to get my Linux Mint 64-bit going on my Lenovo ThinkPad W520
