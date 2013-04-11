@@ -8,4 +8,6 @@ elseif has('unix')
 	set guifont=DejaVu\ Sans\ Mono\ 18
 endif
 
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
 behave mswin
