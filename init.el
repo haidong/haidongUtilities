@@ -40,3 +40,8 @@
 (global-smart-tab-mode t)
 
 (global-visual-line-mode t)
+
+;; open up Emacs with an empty buffer
+(setf inhibit-splash-screen t)
+(switch-to-buffer (get-buffer-create "emtpy"))
+(delete-other-windows)
