@@ -9,7 +9,7 @@
 ;; ---------------------------
 ;; -- Install packages I need
 ;; ---------------------------
-(defvar my-packages '(evil smart-tab yasnippet)
+(defvar my-packages '(evil smart-tab yasnippet fill-column-indicator)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
