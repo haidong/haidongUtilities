@@ -1,4 +1,9 @@
 ;; ---------------------------
+;; -- Get ido for easy buffer management
+;; ---------------------------
+(require 'ido)
+(ido-mode t)
+;; ---------------------------
 ;; -- Setup MELPA package management
 ;; ---------------------------
 (require 'package)
