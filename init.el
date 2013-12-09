@@ -1,8 +1,7 @@
-;; ---------------------------
-;; -- Get ido for easy buffer management
-;; ---------------------------
+(add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'ido)
 (ido-mode t)
+
 ;; ---------------------------
 ;; -- Setup MELPA package management
 ;; ---------------------------
@@ -14,7 +13,7 @@
 ;; ---------------------------
 ;; -- Install packages I need
 ;; ---------------------------
-(defvar my-packages '(evil smart-tab yasnippet fill-column-indicator)
+(defvar my-packages '(evil smart-tab yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -27,6 +26,7 @@
 
 (require 'evil)
 (evil-mode 1)
+
 (require 'smart-tab)
 (require 'yasnippet)
 
@@ -45,6 +45,34 @@
 (global-smart-tab-mode t)
 
 (global-visual-line-mode t)
+(setq w3m-display-inline-images t)
+
+(require 'fill-column-indicator)
+(define-globalized-minor-mode
+ global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode t)
+
+; python-mode
+(setq py-install-directory "~/.emacs.d/elpa/python-mode.el-6.1.2")
+(add-to-list 'load-path py-install-directory)
+(require 'python-mode)
+
+; use IPython
+(setq-default py-shell-name "ipython")
+(setq-default py-which-bufname "IPython")
+; use the wx backend, for both mayavi and matplotlib
+(setq py-python-command-args
+  '("--gui=wx" "--pylab=wx" "-colors" "Linux"))
+(setq py-force-py-shell-name-p t)
+
+; switch to the interpreter after executing code
+(setq py-shell-switch-buffers-on-execute-p t)
+;(setq py-switch-buffers-on-execute-p t)
+; don't split windows
+(setq py-split-windows-on-execute-p nil)
+; try to automagically figure out indentation
+(setq py-smart-indentation t)
+
 
 ;; open up Emacs with an empty buffer
 (setf inhibit-splash-screen t)
