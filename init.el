@@ -63,11 +63,6 @@
 (global-visual-line-mode t)
 (setq w3m-display-inline-images t)
 
-(require 'fill-column-indicator)
-(define-globalized-minor-mode
- global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode t)
-
 ;; open up Emacs with an empty buffer
 (setf inhibit-splash-screen t)
 (switch-to-buffer (get-buffer-create "emtpy"))
