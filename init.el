@@ -7,18 +7,18 @@
 ;; ---------------------------
 (require 'package)
 (add-to-list 'package-archives
-  '("melpa" . "https://melpa.org/packages/") t)
+	       '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; ---------------------------
 ;; -- Install packages I need
 ;; ---------------------------
-(defvar my-packages '(evil smart-tab yasnippet org-pomodoro)
-  "A list of packages to ensure are installed at launch.")
+(defvar my-packages '(evil)
+    "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+    (when (not (package-installed-p p))
+          (package-install p)))
 
 ;; ---------------------------
 ;; -- Config packages I need
@@ -27,8 +27,6 @@
 (require 'evil)
 (evil-mode 1)
 
-(require 'smart-tab)
-(require 'yasnippet)
 
 ;; org config
 (require 'org-install)
@@ -36,34 +34,40 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
-(setq org-agenda-files (list "life.org"))
+(setq org-agenda-files (list "ToDo.org"))
+(setq org-archive-location "%s_archive::datetree/")
 
-(require 'org-pomodoro)
-(setq org-pomodoro-audio-player "sounder.exe")
-(setq org-pomodoro-play-sounds t)
-(defun toggle-pomodoro-ticking-sound ()
-  (interactive)
-  (if org-pomodoro-play-ticking-sounds
-    (setq org-pomodoro-play-ticking-sounds 'nil)
-    (setq org-pomodoro-play-ticking-sounds t)))
-(defun mp-add-pomodoro-ticking-toggle ()
-  (local-set-key (kbd "<f11>") 'toggle-pomodoro-ticking-sound))
-(defun mp-add-pomodoro-start-key ()
-  (local-set-key (kbd "<f12>") 'org-pomodoro))
-(add-hook 'org-mode-hook 'mp-add-pomodoro-start-key)
-(add-hook 'org-mode-hook 'mp-add-pomodoro-ticking-toggle)
+(setq org-capture-templates
+            '(("n" "Notes" entry (file+datetree
+				   "~/cloud/HaidongPlanning/Notes.org")
+	       "* %^{Description} %^g %?
+	       Added: %U")
 
+	    ("t" "ToDo List" entry (file+datetree
+				     "~/cloud/HaidongPlanning/ToDo.org")
+	     "* TODO %^{Description}  %^g
+	    %?
+	    Added: %U")
+	    ))
 
-(add-to-list 'hippie-expand-try-functions-list
-'yas/hippie-try-expand) ;put yasnippet in hippie-expansion list
-
-(setq smart-tab-using-hippie-expand t)
-(global-smart-tab-mode t)
-
-(global-visual-line-mode t)
-(setq w3m-display-inline-images t)
+(setq org-duration-format 'h:mm)
 
 ;; open up Emacs with an empty buffer
 (setf inhibit-splash-screen t)
 (switch-to-buffer (get-buffer-create "emtpy"))
 (delete-other-windows)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (evil))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(find-file "~/cloud/HaidongPlanning/ToDo.org")
+(tool-bar-mode -1)
+(global-visual-line-mode t)
