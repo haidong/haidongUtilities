@@ -3,6 +3,7 @@ set ignorecase smartcase
 set linebreak
 set autoindent
 set showmatch
+set hlsearch
 set cursorline
 set cursorcolumn
 set backupdir=$HOME/Documents/vimBackup
