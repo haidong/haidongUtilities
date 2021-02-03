@@ -6,6 +6,7 @@ set showmatch
 set hlsearch
 set cursorline
 set cursorcolumn
+set diffopt+=iwhite
 set backupdir=$HOME/Documents/vimBackup
 
 syntax on
