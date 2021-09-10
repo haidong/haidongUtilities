@@ -1,5 +1,6 @@
 set nocompatible
 set ignorecase smartcase
+set wildignorecase
 set linebreak
 set autoindent
 set showmatch
