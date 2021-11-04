@@ -96,6 +96,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias ll='ls -latrh'
 alias more=less
+alias ag='ag --path-to-ignore ~/.ignore'
 
 xhost +local:root > /dev/null 2>&1
 
