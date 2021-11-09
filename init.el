@@ -26,6 +26,11 @@
 
 (require 'evil)
 (evil-mode 1)
+;; Make evil treat underscore as part of a word
+(with-eval-after-load 'evil
+    (defalias #'forward-evil-word #'forward-evil-symbol)
+    ;; make evil-search-word look for symbol rather than word boundaries
+    (setq-default evil-symbol-word-search t))
 
 
 ;; org config
