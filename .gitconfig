@@ -1,0 +1,10 @@
+[user]
+	name = Haidong Ji
+	email = ji@haidongji.com
+[core]
+	editor = vim
+	ui = true
+	autocrlf = input
+[pull]
+	rebase = true
+	ff = only
