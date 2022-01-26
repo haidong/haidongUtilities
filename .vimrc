@@ -9,6 +9,7 @@ set cursorline
 set cursorcolumn
 set diffopt+=iwhite
 set backupdir=$HOME/Documents/vimBackup
+set tags=tags;
 
 syntax on
 filetype plugin indent on
