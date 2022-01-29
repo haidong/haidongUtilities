@@ -76,3 +76,6 @@
 (find-file "~/cloud/HaidongPlanning/ToDo.org")
 (tool-bar-mode -1)
 (global-visual-line-mode t)
+;; Set outline minor mode for C and C++ major mode
+(add-hook 'c-mode-hook 'outline-minor-mode)
+(add-hook 'c++-mode-hook 'outline-minor-mode)
