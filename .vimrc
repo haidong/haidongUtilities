@@ -11,6 +11,7 @@ set diffopt+=iwhite
 set backupdir=$HOME/Documents/vimBackup
 set tags=tags;
 set foldmethod=syntax
+au BufWinEnter * normal zR
 
 syntax on
 filetype plugin indent on
