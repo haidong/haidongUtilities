@@ -24,6 +24,11 @@
 ;; -- Config packages I need
 ;; ---------------------------
 
+;; The following line is to enable proper tab folding and unfolding
+;; for org files. Needed after I compiled and build Emacs29, so I can
+;; use GTK.
+;; https://stackoverflow.com/questions/22878668/emacs-org-mode-evil-mode-tab-key-not-working
+(setq evil-want-C-i-jump nil)
 (require 'evil)
 (evil-mode 1)
 ;; Make evil treat underscore as part of a word
