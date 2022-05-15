@@ -14,4 +14,9 @@ alias ll="ls -latrh"
 /usr/bin/keychain $HOME/.ssh/id_ed25519
 source $HOME/.keychain/$HOST-sh
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
+
 plugins=(git ssh-agent)
