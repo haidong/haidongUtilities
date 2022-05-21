@@ -1,5 +1,4 @@
 (require 'package)
-(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
@@ -23,9 +22,9 @@
   ;; make evil-search-word look for symbol rather than word boundaries
   (setq-default evil-symbol-word-search t)
   )
-(use-package ido
+(use-package ivy
   :config
-  (ido-mode t))
+  (ivy-mode 1))
 (use-package org
   :mode (("\\.org$" . org-mode))
   :config
@@ -47,12 +46,14 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (setq org-roam-node-display-template (concat "${title:40} " (propertize "${tags:*}" 'face 'org-tag)))
   (org-roam-db-autosync-mode))
 
 (use-package format-all
   :config
   (add-hook 'prog-mode-hook #'format-all-ensure-formatter))
+
+(use-package magit)
 
 (setq column-number-mode t)
 (setf inhibit-splash-screen t)
