@@ -1,5 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -8,6 +9,8 @@
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
+
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 (use-package evil
   :init
@@ -37,13 +40,10 @@
 (use-package org-roam
   :custom
   (org-roam-directory (file-truename "~/cloud/org-roam"))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
+  :bind (("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ;; Dailies
-         ("C-c n j" . org-roam-dailies-capture-today))
+         ("C-c n c" . org-roam-capture))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:40} " (propertize "${tags:*}" 'face 'org-tag)))
@@ -53,7 +53,23 @@
   :config
   (add-hook 'prog-mode-hook #'format-all-ensure-formatter))
 
+(use-package corfu)
+(use-package corfu-info)
+(use-package corfu-history)
+(require 'lsp-bridge)
+(setq lsp-bridge-completion-provider 'corfu)
+(require 'lsp-bridge-icon)
+(require 'lsp-bridge-orderless)
+(global-corfu-mode)
+(corfu-history-mode t)
+(global-lsp-bridge-mode)
 (use-package magit)
+(use-package posframe)
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
+(setq lsp-bridge-enable-log t)
 
 (setq column-number-mode t)
 (setf inhibit-splash-screen t)
