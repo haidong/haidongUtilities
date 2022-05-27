@@ -1,6 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
+(add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -10,7 +11,21 @@
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
-(setq backup-directory-alist `(("." . "~/.saves")))
+(require 'auto-save)
+(auto-save-enable)
+
+(setq auto-save-silent t)   ; quietly save
+(setq auto-save-delete-trailing-whitespace t)  ; automatically delete spaces at the end of the line when saving
+
+(setq make-backup-files nil)
+
+;;; custom predicates if you don't want auto save.
+;;; disable auto save mode when current filetype is an gpg file.
+(setq auto-save-disable-predicates
+      '((lambda ()
+	  (string-suffix-p
+	   "gpg"
+	   (file-name-extension (buffer-name)) t))))
 
 (use-package evil
   :init
@@ -69,7 +84,7 @@
   :config
   (yas-global-mode 1))
 
-(setq lsp-bridge-enable-log t)
+;;(setq lsp-bridge-enable-log t)
 
 (setq column-number-mode t)
 (setf inhibit-splash-screen t)
