@@ -1,5 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
 (add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
 (package-initialize)
@@ -81,6 +82,7 @@
 (global-lsp-bridge-mode)
 (use-package magit)
 (use-package posframe)
+(use-package markdown-mode)
 (use-package yasnippet
   :config
   (yas-global-mode 1))
