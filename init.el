@@ -69,23 +69,14 @@
   :config
   (add-hook 'prog-mode-hook #'format-all-ensure-formatter))
 
-(use-package corfu)
-(use-package corfu-info)
-(use-package corfu-history)
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
 (require 'lsp-bridge)
-(require 'lsp-bridge-jdtls)       ;; provide Java third-party library jump and -data directory support, optional
-(setq lsp-bridge-completion-provider 'corfu)
-(require 'lsp-bridge-icon)
-(require 'lsp-bridge-orderless)
-(global-corfu-mode)
-(corfu-history-mode t)
 (global-lsp-bridge-mode)
 (use-package magit)
 (use-package posframe)
 (use-package markdown-mode)
-(use-package yasnippet
-  :config
-  (yas-global-mode 1))
 
 ;;(setq lsp-bridge-enable-log t)
 
