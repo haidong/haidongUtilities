@@ -55,7 +55,7 @@
     ))
 (use-package org-roam
   :custom
-  (org-roam-directory (file-truename "~/cloud/org-roam"))
+  (org-roam-directory (file-truename "~/cloud/orgmode/org-roam"))
   :bind (("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
