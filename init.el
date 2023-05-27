@@ -49,13 +49,13 @@
   :config
   (progn
     (setq org-log-done t)
-    (setq org-agenda-files (list "ToDo.org"))
+    (setq org-agenda-files (list "WorkToDo.org"))
     (setq org-archive-location "%s_archive::datetree/")
     (setq org-duration-format 'h:mm)
     ))
 (use-package org-roam
   :custom
-  (org-roam-directory (file-truename "~/cloud/orgmode/org-roam"))
+  (org-roam-directory (file-truename "~/git/jimetrics/orgmode/org-roam"))
   :bind (("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
@@ -84,18 +84,19 @@
 (setf inhibit-splash-screen t)
 (delete-other-windows)
 (global-visual-line-mode t)
+(tool-bar-mode -1)
 (add-hook 'c-mode-hook 'outline-minor-mode)
 (add-hook 'c++-mode-hook 'outline-minor-mode)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cf" 'format-all-buffer)
-(find-file "~/cloud/orgmode/ToDo.org")
+(find-file "~/git/jimetrics/orgmode/WorkToDo.org")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files '("~/cloud/orgmode/ToDo.org"))
+ '(org-agenda-files '("~/git/jimetrics/orgmode/WorkToDo.org"))
  '(package-selected-packages '(org-roam evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
