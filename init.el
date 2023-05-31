@@ -3,7 +3,9 @@
 (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
 (add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (package-initialize)
+(load-theme 'zenburn t)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
