@@ -1,11 +1,11 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
-(add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
+;;(add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
 (add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (package-initialize)
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -57,7 +57,7 @@
     ))
 (use-package org-roam
   :custom
-  (org-roam-directory (file-truename "~/git/jimetrics/orgmode/org-roam"))
+  (org-roam-directory (file-truename "~/Sync/orgmode/org-roam"))
   :bind (("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
@@ -74,8 +74,8 @@
 (use-package yasnippet
   :config
   (yas-global-mode 1))
-(require 'lsp-bridge)
-(global-lsp-bridge-mode)
+;;(require 'lsp-bridge)
+;;(global-lsp-bridge-mode)
 (use-package magit)
 (use-package posframe)
 (use-package markdown-mode)
@@ -91,14 +91,14 @@
 (add-hook 'c++-mode-hook 'outline-minor-mode)
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cf" 'format-all-buffer)
-(find-file "~/git/jimetrics/orgmode/WorkToDo.org")
+(find-file "~/Sync/orgmode/WorkToDo.org")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files '("~/git/jimetrics/orgmode/WorkToDo.org"))
+ '(org-agenda-files '("~/Sync/orgmode/WorkToDo.org"))
  '(package-selected-packages '(org-roam evil use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
