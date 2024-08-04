@@ -1,19 +1,28 @@
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/"))
-;;(add-to-list 'load-path "~/.emacs.d/other-packages/lsp-bridge")
-(add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
-;;(load-theme 'zenburn t)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(package-install 'use-package)
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
 
+;; I use manateelazycat/auto-save from github
+(add-to-list 'load-path "~/.emacs.d/other-packages/auto-save")
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;;(load-theme 'zenburn t)
 (require 'auto-save)
 (auto-save-enable)
 
@@ -101,7 +110,6 @@
  '(org-agenda-files '("~/Sync/orgmode/WorkToDo.org"))
  '(package-selected-packages '(org-roam evil use-package)))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
