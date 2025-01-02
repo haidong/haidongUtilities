@@ -1,20 +1,15 @@
+;; Package Management
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; Bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(package-install 'use-package)
-
 (require 'use-package)
-(setq use-package-always-ensure t)
-
 (eval-and-compile
   (setq use-package-always-ensure t
         use-package-expand-minimally t))
@@ -31,39 +26,34 @@
 
 (setq make-backup-files nil)
 
-;;; custom predicates if you don't want auto save.
-;;; disable auto save mode when current filetype is an gpg file.
+;; Auto-save Configuration
 (setq auto-save-disable-predicates
       '((lambda ()
-	  (string-suffix-p
-	   "gpg"
-	   (file-name-extension (buffer-name)) t))))
+          (string-suffix-p
+           "gpg"
+           (file-name-extension (buffer-name)) t))))
 
+;; Evil Mode (Vim Emulation)
 (use-package evil
   :init
-  ;; The following line is to enable proper tab folding and unfolding
-  ;; for org files. It worked fine without it for a while, but not lately
-  ;; https://stackoverflow.com/questions/22878668/emacs-org-mode-evil-mode-tab-key-not-working
-  (setq evil-want-C-i-jump nil)
+  (setq evil-want-C-i-jump nil) ; Fix tab folding in org-mode
   :config
   (evil-mode 1)
-  ;; Make underscore as part of word.
+  ;; Make underscore part of word
   (defalias #'forward-evil-word #'forward-evil-symbol)
-  ;; make evil-search-word look for symbol rather than word boundaries
-  (setq-default evil-symbol-word-search t)
-  )
+  ;; Use symbol boundaries for word search
+  (setq-default evil-symbol-word-search t))
 (use-package ivy
   :config
   (ivy-mode 1))
+;; Org Mode Configuration
 (use-package org
   :mode (("\\.org$" . org-mode))
   :config
-  (progn
-    (setq org-log-done t)
-    (setq org-agenda-files (list "WorkToDo.org"))
-    (setq org-archive-location "%s_archive::datetree/")
-    (setq org-duration-format 'h:mm)
-    ))
+  (setq org-log-done t
+        org-agenda-files (list "WorkToDo.org")
+        org-archive-location "%s_archive::datetree/"
+        org-duration-format 'h:mm))
 (use-package org-roam
   :custom
   (org-roam-directory (file-truename "~/Sync/orgmode/org-roam"))
